@@ -84,7 +84,7 @@ const DummyContent = () => {
     {
         id: 6,
         imageSrc: cygnus,
-        cols: 1,
+        cols: 2,
       },
     {
       id: 7,
@@ -92,14 +92,15 @@ const DummyContent = () => {
         "At Cygnus we believe that decision making is its last true competitive advantage and AI is its flywheel. We partner with industry leaders across Oil & Gas, Industrials, Retail and CPG and Financial Services. We build AI products, solutions and agentic systems that don’t just automate; they elevate. Inspired by engineering, driven by outcomes, and built for the real world— we're collaborators in your AI journey.",
       cols: 2,
     },
-    { id: 1, title: "", cols: 2 },
-    { id: 2, title: "Launching Soon", cols: 3 },
+    { id: 1, title: "", cols: 1 },
+    { id: 2, title: "Launching Soon", cols: 2 },
     { id: 3, title: "", cols: 1 },
-    { id: 4, title: "", cols: 3 },
+    // { id: 4, title: "", cols: 2 },
     { id: 5, title: "", cols: 1 },
     { id: 8, title: "", cols: 1 },
-    { id: 9, title: "", cols: 2 },
     { id: 10, title: "", cols: 1 },
+    { id: 11, title: "", cols: 1 },
+
   ];
 
   return (
