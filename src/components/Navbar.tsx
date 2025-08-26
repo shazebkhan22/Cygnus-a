@@ -11,7 +11,7 @@ import {
   MobileNavMenu,
 } from "../components/ResizableNavbar"; // named exports
 import { useState } from "react";
-import cygnus from "../assets/Cygnus Logo_Color-Logo Horizontal.svg"
+import cygnus from "../assets/Cygnus Logo_Color-Logo Horizontal.svg";
 // import cygnus_logo from "../assets/Cygnus Logo_Color-Logomark.svg"
 
 export default function NavbarDemo() {
@@ -82,10 +82,10 @@ export default function NavbarDemo() {
 const DummyContent = () => {
   const boxes = [
     {
-        id: 6,
-        imageSrc: cygnus,
-        cols: 2,
-      },
+      id: 6,
+      imageSrc: cygnus,
+      cols: 2,
+    },
     {
       id: 7,
       title:
@@ -95,13 +95,19 @@ const DummyContent = () => {
     { id: 1, title: "", cols: 1 },
     { id: 2, title: "Launching Soon", cols: 2 },
     { id: 3, title: "", cols: 1 },
-    // { id: 4, title: "", cols: 2 },
     { id: 5, title: "", cols: 1 },
     { id: 8, title: "", cols: 1 },
     { id: 10, title: "", cols: 1 },
     { id: 11, title: "", cols: 1 },
-
   ];
+
+  // Map cols number to Tailwind classes
+  const colSpanClasses: Record<number, string> = {
+    1: "md:col-span-1",
+    2: "md:col-span-2",
+    3: "md:col-span-3",
+    4: "md:col-span-4",
+  };
 
   return (
     <div className="container mx-auto p-8 pt-24">
@@ -109,19 +115,21 @@ const DummyContent = () => {
         {boxes.map((box) => (
           <div
             key={box.id}
-            className={`md:col-span-${box.cols} h-60 flex items-center justify-center rounded-lg p-4 shadow-sm overflow-auto bg-neutral-100 dark:bg-neutral-800`}
+            className={`${
+              colSpanClasses[box.cols] || "md:col-span-1"
+            } h-60 flex items-center justify-center rounded-lg p-4 shadow-sm overflow-auto bg-neutral-100 dark:bg-neutral-800`}
           >
-             {box.imageSrc ? (
-      <img
-        src={box.imageSrc}
-        alt="Club"
-        className="h-full w-full object-cover rounded-lg"
-      />
-    ) : box.title === "Launching Soon" ? (
-      <p className="text-center text-5xl font-bold">{box.title}</p>
-    ) : (
-      <p className="text-center text-sm md:text-base">{box.title}</p>
-    )}
+            {box.imageSrc ? (
+              <img
+                src={box.imageSrc}
+                alt="Club"
+                className="h-full w-full object-cover rounded-lg"
+              />
+            ) : box.title === "Launching Soon" ? (
+              <p className="text-center text-5xl font-bold">{box.title}</p>
+            ) : (
+              <p className="text-center text-sm md:text-base">{box.title}</p>
+            )}
           </div>
         ))}
       </div>
